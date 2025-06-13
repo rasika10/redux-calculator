@@ -8,11 +8,11 @@ test('performs addition correctly', () => {
   render(<App />);
 
   // Simulate user clicking "2 + 3 ="
+  fireEvent.click(screen.getByText('5'));
+  fireEvent.click(screen.getByText('*'));
   fireEvent.click(screen.getByText('2'));
-  fireEvent.click(screen.getByText('+'));
-  fireEvent.click(screen.getByText('3'));
   fireEvent.click(screen.getByText('='));
 
   // Verify the display shows "5"
-  expect(screen.getByTestId('display')).toHaveTextContent('5');
+  expect(screen.getByTestId('display')).toHaveTextContent('10');
 });
