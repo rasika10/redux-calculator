@@ -1,40 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    currentValue: '0',
-    previousValue: null,
-    operator: null,
-    overwrite: false,
-    error: null,
+    currentValue: '0',     // Currently displayed value on the calculator
+    previousValue: null,   // Previous value stored when an operator is selected
+    operator: null,        // Current selected operator (+, -, x, /, etc.)
+    overwrite: false,      // If true, next digit input will overwrite the currentValue
+    error: null,           // To store any error messages (e.g., division by zero)
 };
 
+// Creating a calculator slice with actions and reducers
 const calculatorSlice = createSlice({
     name: 'calculator',
     initialState,
     reducers: {
+        // Handles digit inputs (0–9)
         inputDigit(state, action) {
             const digit = action.payload;
-
+            //Overwrite the current value if overwrite is true
             if (state.overwrite) {
                 state.currentValue = digit;
                 state.overwrite = false;
                 return;
             }
-
+             // Prevent multiple leading zeros
             if (state.currentValue === '0' && digit === '0') return;
+
+            // Replace the initial '0' unless it's a decimal
             if (state.currentValue === '0' && digit !== '.') {
                 state.currentValue = digit;
             } else {
-                state.currentValue += digit;
+                state.currentValue += digit; // Append digit to current value
             }
         },
 
+            // Handles decimal point input
         inputDecimal(state) {
             if (!state.currentValue.includes('.')) {
-                state.currentValue += '.';
+                state.currentValue += '.'; // Append decimal only if not already present
             }
         },
 
+        // Handles operator input (+, -, x, /, %)
         inputOperator(state, action) {
             if (state.operator && !state.overwrite) {
                 const result = performCalculation(state);
@@ -45,11 +51,13 @@ const calculatorSlice = createSlice({
                 state.currentValue = result.toString();
             }
 
+            // Store current value as previous and save new operator
             state.previousValue = state.currentValue;
             state.operator = action.payload;
             state.overwrite = true;
         },
 
+        // Executes the calculation when '=' is pressed
         calculate(state) {
             if (!state.operator || state.previousValue === null) return;
 
@@ -66,10 +74,12 @@ const calculatorSlice = createSlice({
             state.error = null;
         },
 
+        // Resets the calculator to initial state
         clear(state) {
             Object.assign(state, initialState);
         },
 
+         // Toggles the sign of the current value
         toggleSign(state) {
             state.currentValue = (parseFloat(state.currentValue) * -1).toString();
         },
@@ -78,6 +88,7 @@ const calculatorSlice = createSlice({
     },
 });
 
+// Helper function to perform arithmetic operations based on selected operator
 function performCalculation(state) {
     const prev = parseFloat(state.previousValue);
     const curr = parseFloat(state.currentValue);
