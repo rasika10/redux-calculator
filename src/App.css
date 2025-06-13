@@ -1,42 +1,86 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* src/App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.calculator {
+  background-color: #2f2f2f;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+  width: 280px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Add inside App.css */
+
+.display {
+  background-color: #1e1e1e;
+  color: white;
+  text-align: right;
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.display .expression {
+  font-size: 1rem;
+  color: #aaa;
+  height: 20px;
 }
 
-.card {
-  padding: 2em;
+.display .result {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
-.read-the-docs {
-  color: #888;
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.button {
+  height: 60px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  background-color: #505050;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #6b6b6b;
+}
+
+.button.operator {
+  background-color: #f89b10;
+  color: white;
+}
+
+.button.operator:hover {
+  background-color: #ffaa33;
+}
+
+.button.clear {
+  background-color: #a6a6a6;
+  color: black;
+}
+
+.button.zero {
+  grid-column: span 2;
 }
