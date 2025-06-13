@@ -65,6 +65,8 @@ npm run test
 
 ![Calculator UI](./src/assets/screenshot.jpg)
 
+![Demo GIF](./src/assets/ReduxCalculator.gif)
+
 ## 👩‍💻 Author
 ### Rasika Shirke
 #### Frontend Developer & UI/UX Designer
