@@ -6,9 +6,9 @@ import App from '../App';
 test('performs addition correctly', () => {
   render(<App />);
 
-  // Simulate user clicking "5 * 2 ="
+  // Simulate user clicking "5 x 2 ="
   fireEvent.click(screen.getByText('5'));
-  fireEvent.click(screen.getByText('*'));
+  fireEvent.click(screen.getByText('x'));
   fireEvent.click(screen.getByText('2'));
   fireEvent.click(screen.getByText('='));
 

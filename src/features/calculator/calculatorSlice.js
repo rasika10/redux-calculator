@@ -92,7 +92,7 @@ function performCalculation(state) {
         case '-':
             result = prev - curr;
             break;
-        case '*':
+        case 'x':
             result = prev * curr;
             break;
         case '/':

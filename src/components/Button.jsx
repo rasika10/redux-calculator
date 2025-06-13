@@ -7,7 +7,7 @@ const Button = ({ label, onClick, className }) => {
       className={`button ${className} ` }
       aria-label={label}
     >
-      {label ==="*"? "x": label}
+      {label}
     </button>
   );
 };

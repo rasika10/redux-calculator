@@ -24,15 +24,15 @@ describe('calculator reducer', () => {
   it('should handle inputOperator', () => {
     const state = calculatorReducer(
       { currentValue: '5', previousValue: null, operator: null, overwrite: false, error: null },
-      inputOperator('*')
+      inputOperator('x')
     );
-    expect(state.operator).toBe('*');
+    expect(state.operator).toBe('x');
     expect(state.previousValue).toBe('5');
   });
 
   it('should handle calculate', () => {
     let state = calculatorReducer(undefined, inputDigit('5'));
-    state = calculatorReducer(state, inputOperator('*'));
+    state = calculatorReducer(state, inputOperator('x'));
     state = calculatorReducer(state, inputDigit('2'));
     state = calculatorReducer(state, calculate());
     expect(state.currentValue).toBe('10');
