@@ -1,12 +1,72 @@
-# React + Vite
+# React Redux Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic calculator application built using **React**, **Redux Toolkit**, **Vite**, and tested with **Jest** and **React Testing Library**. The calculator supports basic arithmetic operations, a clear button, and keyboard input handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- **React** (JSX)
+- **Redux Toolkit**
+- **React-Redux**
+- **Vite** (for fast development & build)
+- **Jest** (unit testing)
+- **React Testing Library** (component tests)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/rasika10/redux-calculator.git
+cd redux-calculator
+```
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+Open http://localhost:5173 to view the app in your browser.
+
+
+
+### Run test suite
+
+```bash
+npm run test
+```
+
+## Features
+
+- **Arithmetic: +, -, ×, ÷**
+
+- **Keyboard input support**
+
+- **Clear (AC) button**
+
+- **Chained operations**
+
+- **Redux-powered state management**
+
+- **Unit & integration tests**
+
+- **CI/CD-ready**
+
+
+## Screenshots or GIFs
+
+![Calculator UI](./src/assets/screenshot.jpg)
+
+![Demo GIF](./src/assets/ReduxCalculator.gif)
+
+## 👩‍💻 Author
+### Rasika Shirke
+#### Frontend Developer & UI/UX Designer

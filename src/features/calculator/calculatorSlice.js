@@ -74,23 +74,7 @@ const calculatorSlice = createSlice({
             state.currentValue = (parseFloat(state.currentValue) * -1).toString();
         },
 
-       inputPercent: (state) => {
-  const prev = parseFloat(state.previousValue);
-  const curr = parseFloat(state.currentValue);
-
-  if (!isNaN(prev) && !isNaN(curr)) {
-    const result = prev % curr;
-    console.log(result);
-    state.currentValue = result.toString();
-    state.previousValue = null;
-    state.operator = null;
-  } else {
-    const single = parseFloat(state.currentValue);
-    if (!isNaN(single)) {
-      state.currentValue = (single % 100).toString();
-    }
-  }
-},
+  
     },
 });
 
@@ -108,7 +92,7 @@ function performCalculation(state) {
         case '-':
             result = prev - curr;
             break;
-        case '*':
+        case 'x':
             result = prev * curr;
             break;
         case '/':
@@ -120,7 +104,7 @@ function performCalculation(state) {
             result = prev / curr;
             break;
         case '%':
-            result = (prev / 100) * curr;
+            result = prev % curr;
             break;
                     
             default:
