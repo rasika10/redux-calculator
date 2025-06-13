@@ -1,5 +1,6 @@
 {
   "name": "redux-calculator",
+   "homepage": "https://rasika10.github.io/redux-calculator",
   "private": true,
   "version": "0.0.0",
  "type": "module", 
@@ -9,7 +10,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",

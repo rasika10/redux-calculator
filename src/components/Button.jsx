@@ -1,4 +1,3 @@
-// src/components/Button.jsx
 import React from 'react';
 
 const Button = ({ label, onClick, className }) => {
@@ -8,7 +7,7 @@ const Button = ({ label, onClick, className }) => {
       className={`button ${className} ` }
       aria-label={label}
     >
-      {label}
+      {label ==="*"? "x": label}
     </button>
   );
 };
