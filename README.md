@@ -43,29 +43,6 @@ Open http://localhost:5173 to view the app in your browser.
 ```bash
 npm run test
 ```
-### Folder Structure
-src/
-│
-├── app/
-│   └── store.js               # Redux store setup
-│
-├── features/
-│   └── calculator/
-│       ├── calculatorSlice.js # Redux slice (state, actions, reducer)
-│       └── calculatorSelectors.js # Memoized selectors (optional)
-│
-├── components/
-│   ├── Display.jsx            # Calculator display
-│   ├── Keypad.jsx             # Calculator keypad
-│   └── Button.jsx             # Reusable button component
-│
-├── App.jsx                    # Main app component
-├── main.js                    # Entry point
-│
-└── _tests/
-    |── CalculatorFlow.test.js           # Sample UI interaction tests
-    └── calculatorSlice.test.js 
-
 
 ## Features
 
