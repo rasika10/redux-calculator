@@ -1,5 +1,5 @@
 // src/components/Keypad.jsx
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from './Button';
 import { useDispatch } from 'react-redux';
 import {
@@ -9,12 +9,33 @@ import {
   calculate,
   inputDecimal,
   toggleSign,
-  inputPercent,
 } from '../features/calculator/calculatorSlice';
 
 const Keypad = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const key = e.key;
 
+      if (/^[0-9]$/.test(key)) {
+        dispatch(inputDigit(key));
+      } else if (['+', '-', '*', '/', '%'].includes(key)) {
+        dispatch(inputOperator(key));
+      } else if (key === '.' || key === ',') {
+        dispatch(inputDecimal());
+      } else if (key === 'Enter' || key === '=') {
+        e.preventDefault();
+        dispatch(calculate());
+      } else if (key === 'Escape') {
+        dispatch(clear());
+      } else if (key === 'Backspace') {
+        dispatch(clear());
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [dispatch]);
   const handleClick = (type, value) => {
     switch (type) {
       case 'digit':
@@ -35,9 +56,7 @@ const Keypad = () => {
       case 'sign':
         dispatch(toggleSign());
         break;
-      case 'percent':
-        dispatch(inputPercent());
-        break;
+
       default:
         break;
     }
@@ -46,7 +65,7 @@ const Keypad = () => {
   const buttons = [
     { label: 'AC', type: 'clear' },
     { label: '+/−', type: 'sign' },
-    { label: '%', type: 'percent' },
+    { label: '%', type: 'operator', value:'%'},
     { label: '÷', type: 'operator', value: '/' },
     { label: '7', type: 'digit' },
     { label: '8', type: 'digit' },
