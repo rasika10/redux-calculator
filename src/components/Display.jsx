@@ -18,7 +18,7 @@ const Display = () => {
       <output aria-label="Expression" className="expression">
         {error ? '' : previous && operator ? `${previous} ${operator}` : ''}
       </output>
-      <output aria-label="Result" className="result">
+      <output aria-label="Result" className="result" data-testid="display">
         {error? 'Cannot divide by 0' : current}
       </output>
     </div>
